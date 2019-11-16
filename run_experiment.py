@@ -28,10 +28,10 @@ if split == 'norm':
   # but subsplit train and validation randomly
   norms = np.linalg.norm(X, axis=1)
   midpt = np.median(norms)
-  X_test = X_train[np.argwhere(norms > midpt)[:,0]]
-  y_test = y_train[np.argwhere(norms > midpt)[:,0]]
-  X_train = X_train[np.argwhere(norms <= midpt)[:,0]]
-  y_train = y_train[np.argwhere(norms <= midpt)[:,0]]
+  X_test = X[np.argwhere(norms > midpt)[:,0]]
+  y_test = y[np.argwhere(norms > midpt)[:,0]]
+  X_train = X[np.argwhere(norms <= midpt)[:,0]]
+  y_train = y[np.argwhere(norms <= midpt)[:,0]]
   X_test, X_val, y_test, y_val = tt_split(X_test, y_test)
 else:
   # Otherwise, split train/test/val completely randomly

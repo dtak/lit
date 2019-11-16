@@ -27,13 +27,13 @@ source activate {conda_env}
 """
 
 def launch_job(restart, dataset, n_models, split, time_limit=None, mem_limit=None):
-  if time_limit is None: time_limit = '0-0{}:00'.format(int(np.ceil(n_models/2.0)))
+  if time_limit is None: time_limit = '0-{0:02d}:00'.format(min(24, n_models*2))
   if mem_limit is None: mem_limit = FLAGS.mem_limit
 
   save_dir = 'restart-{}__dataset-{}__n-models-{}__split-{}/'.format(restart+1, dataset, n_models, split)
   save_dir = os.path.join(FLAGS.base_dir, save_dir)
-  out_file = os.path.join(save_dir, 'job.out')
-  err_file = os.path.join(save_dir, 'job.err')
+  out_file = os.path.join(save_dir, 'job-%j.out')
+  err_file = os.path.join(save_dir, 'job-%j.err')
   slurm_file = os.path.join(save_dir, 'job.slurm')
   os.system('mkdir -p {}'.format(save_dir))
 
@@ -49,7 +49,7 @@ def launch_job(restart, dataset, n_models, split, time_limit=None, mem_limit=Non
   with open(slurm_file, "w") as f: f.write(slurm_command)
   os.system("cat {} | sbatch".format(slurm_file))
 
-datasets = ['ionosphere', 'sonar', 'spectf', 'mushroom', 'electricity', 'covertype']
+datasets = ['covertype', 'ionosphere', 'sonar', 'spectf', 'mushroom', 'electricity']
 datasets += ['icu'] # available on request if you have access to MIMIC-III.
 
 for restart in range(10):

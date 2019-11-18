@@ -3,9 +3,10 @@ import argparse
 import numpy as np
 
 """This is a script to repeatedly launch experiments (i.e. invoke
-`run_experiment.py`) and generate the full set of results from the paper. Some
-of this code, however, is specific to the Harvard Odyssey cluster, and so it
-may not be completely reproducible to outside researchers."""
+`run_experiment.py`) and generate the full set of results from the paper.
+
+NOTE: Some of this code is specific to Harvard Odyssey, and would need to be
+rewritten to work on different research clusters."""
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--base_dir", type=str)

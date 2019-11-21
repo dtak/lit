@@ -8,6 +8,7 @@ __pycache__/
 *.out
 *.log
 *.bst
-datasets/*.npy
+datasets/icu*.npy
 results/
 writeup/
+

@@ -3,6 +3,7 @@
 This repository contains code used to generate the results in
 [Ensembles of Locally Independent Prediction Models](https://arxiv.org/abs/1911.01291).
 
+
 ## Main Idea
 
 Ensembling is a subfield of machine learning that studies how predictions from
@@ -68,6 +69,10 @@ from this public repository since it requires access to the
 [MIMIC-III database](https://mimic.physionet.org/).
 If you have already obtained access to MIMIC-III and seek to reproduce those
 results, please contact us using the emails provided in the paper.
+
+## See Also
+
+A [workshop version of this paper](https://arxiv.org/abs/1806.08716) and [associated repository](https://github.com/dtak/local-independence-public), where we focus on interpretability rather than predictive performance.
 
 ## Citation
 
